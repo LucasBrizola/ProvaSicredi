@@ -1,9 +1,10 @@
 package utils;
 
-import io.cucumber.java.Scenario;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import io.cucumber.java.Scenario;
 import org.apache.log4j.*;
 
 public class Log4jUtils extends SeleniumUtils {

@@ -1,7 +1,0 @@
-elements\SimuladorPageElements.class
-utils\ReportUtils.class
-steps\SimuladorSteps.class
-setup\TestRule.class
-pages\SimuladorPage.class
-utils\Log4jUtils.class
-utils\SeleniumUtils.class

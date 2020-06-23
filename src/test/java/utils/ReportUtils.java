@@ -20,21 +20,20 @@ public class ReportUtils extends SeleniumUtils {
   public static void criarReportFeature(Scenario cenario) {
     if (extentReports == null) {
       extentReports = new ExtentReports();
-
       String dir = System.getProperty("user.dir");
       String filename = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
       filename = filename.replace(".", "_");
-      String nomeFeature = cenario.getId().split(";")[0];
-      nomeFeature.replace(" ", "_").replace("\"", "");
+      //String nomeFeature = cenario.getId().split(";")[0];
+      //nomeFeature.replace(" ", "_").replace("\"", "");
       SeleniumUtils.criarDiretorio(dir + "\\report");
-      setDiretorioReport("./report/" + nomeFeature + "-" + filename);
+      setDiretorioReport("./report/" + filename);
       SeleniumUtils.criarDiretorio(diretorioReport);
 
       htmlReporter = new ExtentHtmlReporter(diretorioReport + "\\report.html");
       extentReports.attachReporter(htmlReporter);
     }
     child = extentReports.createTest(cenario.getName(),
-        cenario.getId().split(";")[1].replace("-", " ").toUpperCase());
+        "" );
   }
 
   public static void setDiretorioReport(String diretorio) {

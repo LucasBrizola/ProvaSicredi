@@ -12,6 +12,12 @@ public class SimuladorPageElements extends SeleniumUtils {
   @FindBy(id="valorAplicar")
   protected WebElement VALOR_APLICAR;
 
+  @FindBy(id="valorAplicar-error")
+  protected WebElement VALOR_APLICAR_ERROR;
+
+  @FindBy(id="valorInvestir-error")
+  protected WebElement VALOR_INVESTIR_ERROR;
+
   @FindBy(id="valorInvestir")
   protected WebElement VALOR_INVESTIR;
 
@@ -21,5 +27,12 @@ public class SimuladorPageElements extends SeleniumUtils {
   @FindBy(id="periodo")
   protected WebElement PERIODO;
 
+  @FindBy(xpath = "//*[@id=\"formInvestimento\"]/div[5]/ul/li[2]/button")
+  protected WebElement BOTAO_SIMULAR;
 
+  @FindBy(xpath = "/html/body/div[3]/div/div/div[1]/div/div[2]/a")
+  protected WebElement BOTAO_REFAZER_SIMULACAO;
+
+  @FindBy(xpath = "//*[@class='modal bootstrap-dialog type-primary size-normal fade in']")
+  public WebElement MODAL_BACKDROP;
 }
