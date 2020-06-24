@@ -90,17 +90,29 @@ public class SimuladorPage extends SimuladorPageElements {
     }
 
     public boolean validaGeracaoSimulacao() {
+        esperaElementoVisivel(BOTAO_REFAZER_SIMULACAO, 5);
         return verificaExistenciaDeElementoNaTela(BOTAO_REFAZER_SIMULACAO);
     }
 
     public boolean verificaAlertaMenosDe20Reais(int aplicar, int investir) {
         if (aplicar < 2000) {
+            ReportUtils.logMensagem(Status.INFO, "Valor aplicar é menor que 20,00.");
             return verificaExistenciaDeElementoNaTela(VALOR_APLICAR_ERROR);
         }
         if (investir < 2000) {
+            ReportUtils.logMensagem(Status.INFO, "Valor investir é menor que 20,00.");
             return verificaExistenciaDeElementoNaTela(VALOR_INVESTIR_ERROR);
         }
-        else return false;
+        else
+            ReportUtils.logMensagem(Status.FAIL, "Valores são maiores que 20,00.");
+            return false;
     }
 
+    public boolean validaResponseApi(String jsonFromSimulator) {
+        String jsonResponseExpected = loadFromPropertiesFile("sicredi.properties",
+                "JSON");
+        ReportUtils.logMensagem(Status.INFO, "json recebido da api foi: " + jsonFromSimulator);
+        ReportUtils.logMensagem(Status.INFO, "json esperado da api é: " + jsonResponseExpected);
+        return jsonFromSimulator.equalsIgnoreCase(jsonResponseExpected);
+    }
 }

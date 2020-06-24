@@ -3,10 +3,12 @@ package actions;
 import com.aventstack.extentreports.Status;
 import pages.SimuladorPage;
 import utils.ReportUtils;
+import utils.RestUtils;
 
 public class SimuladorAction {
     int aplicar;
     int investir;
+    private static String jsonString;
 
     private final SimuladorPage simuladorPage = new SimuladorPage();
 
@@ -34,4 +36,11 @@ public class SimuladorAction {
         return simuladorPage.verificaAlertaMenosDe20Reais(aplicar, investir);
     }
 
+    public void geraRequisicao(String url) {
+        jsonString = RestUtils.getApi(url).asString();
+    }
+
+    public boolean validaResponseApi() {
+        return simuladorPage.validaResponseApi(jsonString);
+    }
 }

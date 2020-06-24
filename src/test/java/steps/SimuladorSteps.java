@@ -2,6 +2,7 @@ package steps;
 
 import actions.SimuladorAction;
 import com.aventstack.extentreports.Status;
+import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 import io.cucumber.java.pt.Dado;
@@ -36,8 +37,20 @@ public class SimuladorSteps {
 
     @Então("uma mensagem aparecerá avisando valor minimo de 20 reais")
     public void verificaAlertaMenosDe20Reais() {
-        ReportUtils.logMensagem(Status.INFO, "Valiando se alerta de menos de 20 reais apareceu.");
+        ReportUtils.logMensagem(Status.INFO, "Validando se alerta de menos de 20 reais apareceu.");
         assertTrue(simuladorAction.verificaAlertaMenosDe20Reais());
     }
 
+    @Quando("^eu fizer uma requisição get para o endpoint da API para o cenário \"([^\"]*)\"$")
+    public void euFizerUmaRequisiçãoGetParaOEndpointDaAPIParaOCenário(String nomeCenario) {
+        ReportUtils.logMensagem(Status.INFO, "Realizando requisição para a api de simulação.");
+        SeleniumUtils.criaDiretorioPrint(nomeCenario);
+        simuladorAction.geraRequisicao("http://5b847b30db24a100142dce1b.mockapi.io/api/v1/simulador");
+    }
+
+    @Entao("devo verificar que os dados retornados estão corretos")
+    public void verificaDadosSimulacao() {
+        ReportUtils.logMensagem(Status.INFO, "Validando Response da API.");
+        assertTrue(simuladorAction.validaResponseApi());
+    }
 }

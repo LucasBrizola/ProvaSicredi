@@ -22,3 +22,11 @@ Funcionalidade: Simular Investimento
       | nomeCenario      | valorAplicar | valorInvestir | tempo | selectPeriodo |
       | APLICAR_19_REAIS | 1900         | 2000          | 12    | Meses         |
       | POUPAR_19_REAIS  | 2000         | 1900          | 12    | Meses         |
+
+  @API
+  Esquema do Cenario: Testar API
+    Quando eu fizer uma requisição get para o endpoint da API para o cenário "<nomeCenario>"
+    Entao devo verificar que os dados retornados estão corretos
+    Exemplos:
+      | nomeCenario |
+      | getApi      |
