@@ -25,7 +25,14 @@
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
-      <version>6.0.0</version>
+      <version>6.1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>6.1.2</version>
+      <scope>test</scope>
     </dependency>
 
     <dependency>

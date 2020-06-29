@@ -3,11 +3,9 @@ Funcionalidade: Simular Investimento
   Eu como investidor, desejo fazer uma simulação de investimento
   Para que eu saiba o valor ideal e quanto vou poupar no prazo escolhido
 
-  Contexto:
-    Dado que estou na tela do simulador de investimento
-
   @GERA_SIMULAÇÃO
   Esquema do Cenario: Gerar uma simulação com dados válidos
+    Dado que estou na tela do simulador de investimento
     Quando preencho o formulário com dados de aplicar "<valorAplicar>", investir "<valorInvestir>", tempo "<tempo>" e periodo "<selectPeriodo>" para o "<nomeCenario>"
     Entao a simulação é gerada com sucesso
     Exemplos:
@@ -16,6 +14,7 @@ Funcionalidade: Simular Investimento
 
   @VALOR_INFERIOR
   Esquema do Cenario: Simular investimento com menos de 20 reais nos campos
+    Dado que estou na tela do simulador de investimento
     Quando preencho o formulário com dados de aplicar "<valorAplicar>", investir "<valorInvestir>", tempo "<tempo>" e periodo "<selectPeriodo>" para o "<nomeCenario>"
     Entao uma mensagem aparecerá avisando valor minimo de 20 reais
     Exemplos:
